@@ -16,9 +16,8 @@ int main ()
 
 void calculmatriciel(void)
 {
-    int firstMatrice [2];
-    int secondMatrice [2];
-    
+    int firstMatrice [2][2];
+    int secondMatrice [2][2];
     
     pthread_exit(NULL);
     
