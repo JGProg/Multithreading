@@ -2,7 +2,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NBLigne 3
+int **a, **b, **c;
+int numThreads, matrixSize;
 
 /* methods pour résoudre l'exercice */
 void caculMatriciel(void);
@@ -45,19 +46,14 @@ void add(int myId)
     
     int activerow = myId;
     
-    // matrix mult over the strip of rows for this thread
     for (i = activerow; i <= activerow; i++)
     {
         for (j = 0; j < matrixSize; j++)
         {
-            sum = 0.0;
-            for (k = 0; k < matrixSize; k++)
-            {
-                sum = sum + a[i][k] * b[k][j];
-            }
-            c[i][j] = sum;
+            c[i][j] = a[i][j] + b[i][j];
         }
     }
+    
     printf("Calcul thread : ");
     for (i = activerow; i <= activerow; i++)
     {
@@ -126,6 +122,6 @@ int main (int argc, char *argv[])
         pthread_join(threads[i], NULL);
     }
     
-    printf("\nRésultat de l'addition \n");
+    printf("\nRésultat de l'addition de la matrice A + B \n");
     printMatrix(c);
 }
