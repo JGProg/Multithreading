@@ -1,6 +1,3 @@
-// CSc 422
-// Matrix multiplication example with pthreads
-
 #include <stdio.h>
 #include <sys/types.h>
 #include <pthread.h>
@@ -9,7 +6,7 @@
 int **a, **b, **c;
 int numThreads, matrixSize;
 
-int **allocateMatrix()
+int **allocateMatric()
 {
     int i;
     int *vals, **temp;
@@ -33,7 +30,9 @@ void printMatrix(int **mat)
     for(i=0; i < matrixSize; i++)
     {
         for(j=0; j < matrixSize; j++)
+        {
             printf("%d ",  mat[i][j]);
+        }
         printf("\n");
     }
 }
@@ -45,7 +44,6 @@ void mm(int myId)
     
     int activerow = myId;
     
-    // matrix mult over the strip of rows for this thread
     for (i = activerow; i <= activerow; i++)
     {
         for (j = 0; j < matrixSize; j++)
