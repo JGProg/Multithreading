@@ -21,3 +21,5 @@ Exo5 : calcul matriciel
 ----
 Faire une multiplication entre deux matrices en utilisant pthreads
 
+test
+
